@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Facebook - Đăng nhập hoặc đăng ký</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+  <script src="js/bootstrap.min.js" type="text/javascript"></script>
+  <script src="js/jquery-3.4.1.min.js" type="text/javascript"></script>
+  <meta name="keywords" content="facebook, FACEBOOK"/>
+  <meta name="description" content="Đây là giao diện trang facebook"/>
+  <link href="css/style.css" rel="stylesheet" type="text/css"/>
+  <link rel="shortcut icon" href="images/favicon.ico" />
+          <script>
+            function thongBao(){
+                 alert("Welcome to Facebook");
+             }
+             
+            function kiemTraRemail(){
+                //Lấy biến frm từ form
+                var frm = document.forms["dangky"]; 
+                //Kiểm tra Email
+                var email = frm["email"].value;
+                //abc@gmail.com
+                var atpos = email.indexOf("@"); //Thì hàm này sẽ trả về giá trị là 3. a=0 , b=1,c=2 và @ là 3
+                var atpos2 = email.lastIndexOf("@");//Nếu có 1 chữ @ thì 2 giá trị atpos sẽ bằng nhau.
+                var dotpos = email.lastIndexOf(".");
+                
+                if(atpos>0&& atpos == atpos2 && dotpos > atpos && (email.length - 1 - dotpos) >=2) // dotpos > atpos tức là . phải nằm sau @ tức là giá trị đếm từ trái sang phải của . sẽ lớn hơn
+                {
+                    return true;
+                }
+                else{
+                    alert("Định dạng mail không hợp lệ");
+                    return false;
+                }
+                             
+                //Kiểm tra 2 Email trùng nhau
+                var email2 = frm["email2"].value;
+                if (email != email2){
+                    alert("Hai email bạn nhập không giống nhau");
+                    return false;
+                }
+                
+                // còn ở trên đúng hết thì return True
+                return true;
+            }
+                
+        </script>
+</head>
+<body>
+    <div class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 nhan">
+                    <div class="logo">
+                        <img src="images/logo.PNG" alt=""/>
+                    </div>
+                </div>
+                <div class="col-md-5 login">
+                    <div class="row login-block">
+                    <div class="col-md-4 id remove-padding">
+                        <div class="form-group">
+                        <label for="inpID">Email hoặc điện thoại</label>
+                        <input type="text" class="form-control" id="inpID" >
+                        </div>
+                    </div>
+                    <div class="col-md-4 pass remove-padding">
+                        <div class="form-group">
+                        <label for="inpPass">Mật khẩu</label>
+                        <input type="password" class="form-control" id="inpPass">
+                        </div>
+                        <a href="#" class="quen">Quên tài khoản?</a>
+                    </div>
+                    <div class="col-md-2 submit">
+                        <button type="button" class="btn btn-light">Đăng nhập</button>
+                    </div>
+                    </div>
+                </div>
+            </div>   
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 trai">
+                    <h3>Facebook giúp bạn kết nối và chia sẻ với mọi người trong cuộc sống của bạn.</h3>
+                    <img src="images/banner.png" alt=""/>
+                </div>
+                <div class="col-md-6 phai">
+                    <h3>Đăng ký</h3>
+                    <h5 class="caption">Nhanh chóng và dễ dàng</h5>
+                     <div>
+                        <form id="dangky" action="" method="post" name="dangky" onsubmit="return thongBao();">
+                            <div class="row">
+                                <div class="form-group col">
+                                   <input type="text" id="ho" name="ho" placeholder="Họ" value="" class="form-control" required pattern="^[A-Za-z_]{1,20}$" title="Họ viết liền không dấu và không bao gồm số, tối đa 20 ký tự"/>
+                                </div>
+                                <div class="form-group col">
+                                    <input type="text" id="ten" name="ten" placeholder="Tên" value="" class="form-control" required pattern="^[A-Za-z_]{1,20}$" title="Tên viết liền không dấu và không bao gồm số, tối đa 20 ký tự"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" name="email" placeholder="Nhập email" value="" class="form-control" required title="Mail phải bao gồm ký tự @, tên miền phải chính xác"/>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email2" name="email2" placeholder="Nhập lại email" value="" class="form-control" required title="Mail phải bao gồm ký tự @, tên miền phải chính xác" />
+                            </div>
+                            <div class="form-group">
+                                <input type="password" id="password" name="password" placeholder="Mật khẩu mới" class="form-control" required pattern="^[a-zA-Z0-9]{8,}" title="Mật khẩu bao gồm chữ và số, có ít nhất 8 ký tự"/>
+                            </div>
+                            
+                            <fieldset>
+                                <legend>Ngày sinh</legend>
+                                <div class="row sinhnhat">                             
+                                <select class="form-control col-md-3">
+                                    <option>Ngày</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                    <option>10</option>
+                                    <option>11</option>
+                                    <option>12</option>
+                                    <option>13</option>
+                                    <option>14</option>
+                                    <option>15</option>
+                                    <option>16</option>
+                                    <option>17</option>
+                                    <option>18</option>
+                                    <option>19</option>
+                                    <option>20</option>
+                                    <option>21</option>
+                                    <option>22</option>
+                                    <option>23</option>
+                                    <option>24</option>
+                                    <option>25</option>
+                                    <option>26</option>
+                                    <option>27</option>
+                                    <option>28</option>
+                                    <option>29</option>
+                                    <option>30</option>
+                                    <option>31</option>                                                                                                                                                                              
+                                </select>
+                                
+                                <select class="form-control col-md-3">
+                                    <option>Tháng</option>
+                                    <option>Tháng 1</option>
+                                    <option>Tháng 2</option>
+                                    <option>Tháng 3</option>
+                                    <option>Tháng 4</option>
+                                    <option>Tháng 5</option>
+                                    <option>Tháng 6</option>
+                                    <option>Tháng 7</option>
+                                    <option>Tháng 8</option>
+                                    <option>Tháng 9</option>
+                                    <option>Tháng 10</option>
+                                    <option>Tháng 11</option>
+                                    <option>Tháng 12</option>
+                                </select> 
+                                   <select class="form-control col-md-3">
+                                    <option>Năm</option>
+                                    <option>2019</option>
+                                    <option>2018</option>
+                                    <option>2017</option>
+                                    <option>2016</option>
+                                    <option>2015</option>
+                                    <option>2014</option>
+                                    <option>2013</option>
+                                    <option>2012</option>
+                                    <option>2011</option>
+                                    <option>2010</option>
+                                    <option>2009</option>
+                                    <option>2008</option>
+                                    <option>2007</option>
+                                    <option>2006</option>
+                                    <option>2005</option>
+                                    <option>2004</option>
+                                    <option>2003</option>
+                                    <option>2002</option>
+                                    <option>2001</option>
+                                    <option>2000</option>
+                                    <option>1999</option>
+                                    <option>1998</option>
+                                    <option>1997</option>
+                                    <option>1996</option>
+                                    <option>1995</option>
+                                    <option>1994</option>
+                                    <option>1993</option>
+                                    <option>1992</option>
+                                    <option>1991</option>
+                                    <option>1990</option>
+                                    <option>1989</option>
+                                    <option>1988</option>
+                                    <option>1987</option>
+                                    <option>1986</option>
+                                    <option>1985</option>
+                                    <option>1984</option>
+                                    <option>1983</option>
+                                    <option>1982</option>
+                                    <option>1981</option>
+                                    <option>1980</option>
+                                    <option>1979</option>
+                                    <option>1978</option>                                                                                                                                      
+                                 </select>     
+                                </div>    
+                            </fieldset>
+                            <fieldset>
+                                <legend>Giới tính</legend>
+                                <div class="gioitinh">
+                                    <label for="nu">Nữ</label>
+                                <input class="" type="radio" name="sex" id="nu" value="Nữ" aria-label="...">
+                                    <label for="nam">Nam</label>
+                                <input class="" type="radio" name="sex" id="nam" value="Nam" aria-label="...">
+                                    <label for="tc">Tùy chỉnh</label>                                
+                                <input class="" type="radio" name="sex" id="tc" value="Tùy chỉnh" aria-label="...">
+                                </div>
+                            </fieldset> 
+                            <p class="dieukhoan">Bằng cách nhấp vào Đăng ký, bạn đồng ý với <a href="#">Điều khoản, Chính sách dữ liệu</a> và <a href="#">Chính sách cookie</a> của chúng tôi. Bạn có thể nhận được thông báo của chúng tôi qua SMS và hủy nhận bất kỳ lúc nào.</p>
+                            <p>
+                                <input type="submit" class="nutdangky" value="Đăng ký">
+                            </p>
+                        </form>
+                         <p class="noitieng"><a href="#">Tạo Trang</a> dành cho người nổi tiếng, nhãn hiệu hoặc doanh nghiệp.</p>
+                    </div>       
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="container">
+            <div class="row tren">
+                <p><a href="#">Tiếng Việt&nbsp;</a>
+                        <a href="#">English (UK)&nbsp;</a>
+                        <a href="#">中文(台灣)&nbsp;</a>
+                        <a href="#">한국어&nbsp;</a>
+                        <a href="#">日本語&nbsp;</a>
+                        <a href="#">Français (France)&nbsp;</a>
+                        <a href="#">ภาษาไทย&nbsp;</a>
+                        <a href="#">Español&nbsp;</a>
+                        <a href="#">Português (Brasil)&nbsp;</a>
+                        <a href="#">Deutsch&nbsp;</a>
+                        <a href="#">Italiano&nbsp;</a>
+                    </p>
+            </div>
+            <div class="row duoi">
+                 <p><a href="#">Đăng ký&nbsp;&nbsp;</a>
+                    <a href="#">Đăng nhập&nbsp;&nbsp;</a>
+                    <a href="#">Messenger&nbsp;&nbsp;</a>
+                    <a href="#">Facebook Lite&nbsp;&nbsp;</a>
+                    <a href="#">Danh bạ Trang&nbsp;&nbsp;</a>
+                    <a href="#">Hạng mục Trang&nbsp;&nbsp;</a>
+                    <a href="#">Địa điểm&nbsp;&nbsp;</a>
+                    <a href="#">Trò chơi&nbsp;&nbsp;</a>
+                    <a href="#">Vị trí&nbsp;&nbsp;</a>
+                    <a href="#">Marketplace&nbsp;&nbsp;</a>
+                    <a href="#">NhómInstagram&nbsp;&nbsp;</a>
+                    <a href="#">Địa phương&nbsp;&nbsp;</a>
+                    <a href="#">Trang gây quỹ&nbsp;&nbsp;</a>
+                    <a href="#">Dịch vụ&nbsp;&nbsp;</a>
+                    <a href="#">Giới thiệu&nbsp;&nbsp;</a>
+                    <a href="#">Tạo quảng cáo&nbsp;&nbsp;</a>
+                    <a href="#">Tạo Trang&nbsp;&nbsp;</a>
+                    <a href="#">Nhà phát triển&nbsp;&nbsp;</a>
+                    <a href="#">Tuyển dụng&nbsp;&nbsp;</a>
+                    <a href="#">Quyền riêng tư&nbsp;&nbsp;</a>
+                    <a href="#">Cookie&nbsp;&nbsp;</a>
+                    <a href="#"> Lựa chọn quảng cáo&nbsp;&nbsp;</a>
+                    <a href="#">Điều khoản&nbsp;&nbsp;</a>
+                    <a href="#">Bảo mật tài khoản&nbsp;&nbsp;</a>
+                    <a href="#">Trợ giúp đăng nhập&nbsp;&nbsp;</a>
+                    <a href="#">Trợ giúp&nbsp;&nbsp;</a>
+                    <a href="#">Cài đặt&nbsp;&nbsp;</a>
+                    <a href="#">Nhật ký hoạt động&nbsp;&nbsp;</a>
+                    </p>
+                    <br><br>
+                    <p class="face">Facebook &copy; 2019</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
